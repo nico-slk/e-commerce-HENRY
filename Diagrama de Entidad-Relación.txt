@@ -1,0 +1,48 @@
+﻿Link al diagrama. Lo pueden editar.
+
+https://app.lucidchart.com/documents/view/26861220-6206-430a-86d7-01caa24f479b
+
+S4: Producto:
+Debe tener por lo menos estos atributos:
+Nombre
+Descripción
+Precio
+Stock
+Pertenecer a una o más categorías.
+Tener por lo menos una imagen.
+
+S5: Categoría
+Puede tener un nombre y descripción.
+
+La relación debe ser Muchos a Muchos. Ya que un Producto puede tener N categorías, y la misma categoría puede estar en M productos.
+Tips: No debe tener los campos de claves foraneas, Sequelize agrega eso automáticamente con las relaciones
+
+S30: Usuario
+Este debe contener toda la información que considere necesaria. Las únicas restricciones son:
+El email debe ser válido.
+El email debe ser único.
+
+Todavía no vamos a implementar autenticación, por lo tanto, este modelo debe contener solamente los datos del usuario.
+
+
+S31: Órdenes
+Una orden debe pertenecer a un usuario o a un guest (autenticado vs no autenticado).
+Las órdenes deben tener línea de orden que contiene el precio, productId, y cantidad.
+Si un usuario completa una orden, esa orden debe mantener el precio del item al momento de la compra, 
+sin importar que el precio del producto cambie después.
+estado (creada, procesando, cancelada, completa)
+
+
+S32: Línea de orden
+El modelo de Línea de orden es en realidad una tabla intermedia que conecta a las ordenes con los productos 
+(una orden puede tener muchos producos, y un producto puede estar en muchas ordenes).
+Pero además de las FK de producto y orden, va tener atributos como: cantidad, precio, etc..
+
+
+S53: Review
+
+Crear el modelo Reviews y relacionarlo con Producto.
+
+Un producto puede tener muchas reviews. Una review es de un usuario.
+
+La review debe tener un sistema de calificación y una descripción. 
